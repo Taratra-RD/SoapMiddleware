@@ -43,13 +43,13 @@ async function getExternalProducts() {
                 
                if (!productInfo.ok) {
                     console.error(`Erreur HTTP : ${productInfo.status} ${productInfo.statusText}`);
-                    throw new Error(`Erreur lors de la récupération du produit ${isbn.id_produit}`);
+                    throw new Error(`Erreur lors de la récupération du produit ${isbn.prd_id}`);
                 }
                 
                 const productData = await productInfo.json();
                 return productData.isbnList[0]; // Merge data
             } catch (error) {
-                console.error(`Erreur lors de la récupération du produit ${isbn.id_produit}:`, error.message);
+                console.error(`Erreur lors de la récupération du produit ${isbn.prd_id}:`, error.message);
                 return productData.isbnList
             }
         })

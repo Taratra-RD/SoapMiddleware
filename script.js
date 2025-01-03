@@ -1,6 +1,7 @@
 import express from 'express';
 import fetch from 'node-fetch'; // To perform the fetch operation
 import { DOMParser } from 'xmldom'; // To parse XML into DOM format
+import axios from 'axios';
 
 const app = express();
 const port = 3000;
@@ -722,6 +723,24 @@ app.post('/get-tb-commandes', async (req, res) => {
         // Handle errors gracefully
         console.error("Error retrieving commandes:", error);
         res.status(500).send('Erreur lors de la récupération des commandes.');
+    }
+});
+
+const SHOPIFY_STORE = 'xg3gt2-1b.myshopify.com';
+const ACCESS_TOKEN = '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';
+
+app.get('/products', async (req, res) => {
+    try {
+        const response = await axios.get(`https://${SHOPIFY_STORE}/admin/api/2023-10/products.json`, {
+            headers: {
+                'X-Shopify-Access-Token': ACCESS_TOKEN
+            }
+        });
+        const products = response.data.products;
+        res.json(products);
+    } catch (error) {
+        console.error('Error fetching products:', error);
+        res.status(500).json({ error: 'Failed to fetch products' });
     }
 });
 
