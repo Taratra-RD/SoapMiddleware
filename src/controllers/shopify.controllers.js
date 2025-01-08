@@ -1,4 +1,6 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const SHOPIFY_STORE = process.env.URL_SHOPIFY;
 const ACCESS_TOKEN = process.env.ACCESS_SHOPIFY;

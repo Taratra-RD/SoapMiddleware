@@ -5,6 +5,8 @@ import { transformStockList } from '../utils/soap.utils.js';
 import { getProductInfo } from '../utils/soap.utils.js';
 import axios from 'axios';
 import fs from 'fs';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const SHOPIFY_STORE = process.env.URL_SHOPIFY;
 const ACCESS_TOKEN = process.env.ACCESS_SHOPIFY;
