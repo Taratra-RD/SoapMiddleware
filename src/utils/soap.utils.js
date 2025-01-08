@@ -54,7 +54,9 @@ async function getProductInfo(formatStockList) {
                     }),
                 });
                 let responseData = await response.json();
-                console.log('productInfo', prd_id);
+                if (process.env.NODE_ENV === 'development') {
+                    console.log('productInfo', prd_id);
+                }
                 return {
                     ...stockItem,
                     productInfo: responseData, // Ajout de productInfo directement sous prd_id

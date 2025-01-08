@@ -65,8 +65,9 @@ const syncShopifyProducts = async () => {
 
                 if (existingProduct) {
                     // Mise à jour du produit existant
-                    console.log(`Produit trouvé : ${existingProduct.title}`);
-
+                    if (process.env.NODE_ENV === 'development') {
+                        console.log(`Produit trouvé : ${existingProduct.title}`);
+                    }
                     for (const appVariant of appProduct.variants) {
                         try {
                             const existingVariant = existingProduct.variants.find(
@@ -114,7 +115,9 @@ const syncShopifyProducts = async () => {
                                 }
                             } else {
                                 // Ajouter une nouvelle variante
-                                console.log(`Ajout d'une nouvelle variante SKU ${appVariant.stock_ean13}`);
+                                if (process.env.NODE_ENV === 'development') {
+                                    console.log(`Ajout d'une nouvelle variante SKU ${appVariant.stock_ean13}`);
+                                }
                                 const addVariantUrl = `${SHOPIFY_STORE}/admin/api/2023-01/products/${existingProduct.id}/variants.json`;
                                 await axios.post(addVariantUrl, {
                                     variant: {
@@ -134,7 +137,9 @@ const syncShopifyProducts = async () => {
                     }
                 } else {
                     // Créer un nouveau produit
-                    console.log(`Ajout d'un nouveau produit avec ID ${appProduct.prd_id}`);
+                    if (process.env.NODE_ENV === 'development') {
+                        console.log(`Ajout d'un nouveau produit avec ID ${appProduct.prd_id}`);
+                    }
                     const createUrl = `${SHOPIFY_STORE}/admin/api/2023-01/products.json`;
                     await axios.post(createUrl, {
                         product: {
