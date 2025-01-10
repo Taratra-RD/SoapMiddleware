@@ -531,11 +531,11 @@ const getProductInfoControllers = async (req, res) => {
         });
 
         // Get the response data
-        const data = await response.text();
-
+        const buffer = await response.arrayBuffer();
+        const decodedData = iconv.decode(Buffer.from(buffer), "ISO-8859-1");
         // Parse the response XML
         const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(data, "application/xml");
+        const xmlDoc = parser.parseFromString(decodedData, "application/xml");
 
         // Extract items from the response
         const items = xmlDoc.getElementsByTagName("item");
