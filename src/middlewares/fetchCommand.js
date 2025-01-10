@@ -258,6 +258,9 @@ const createOrder = async (command, shopifyProducts) => {
         return {
             variant_id: variantId,
             quantity: detail.qte,
+            title: detail.libel || "Custom Product Title",
+            name: detail.libel || "Custom Product Name",  
+            price: detail.pu, 
             custom_attributes: [
                 { name: 'taille', value: detail.taille },
                 { name: 'couleur', value: detail.couleur }
@@ -288,7 +291,6 @@ const createOrder = async (command, shopifyProducts) => {
             note: `Command ID: ${command.cde_id}`
         }
     };
-
     try {
         const response = await axios.post(url, orderData, {
             headers: {
@@ -298,7 +300,12 @@ const createOrder = async (command, shopifyProducts) => {
         });
         console.log(`Order created successfully for cde_id ${command.cde_id}`);
     } catch (error) {
-        console.error(`Error creating order for cde_id ${command.cde_id}:`, error.message);
+        if (error.response) {
+            console.error("Shopify response data:", error.response.data);
+            console.error("Shopify response status:", error.response.status);
+        } else {
+            console.error("Error creating order:", error.message);
+        }
     }
 };
 
