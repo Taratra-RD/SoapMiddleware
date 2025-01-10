@@ -1,0 +1,1345 @@
+[
+  {
+    "id": 5918824333463,
+    "admin_graphql_api_id": "gid://shopify/Order/5918824333463",
+    "app_id": 204778766337,
+    "browser_ip": null,
+    "buyer_accepts_marketing": false,
+    "cancel_reason": null,
+    "cancelled_at": null,
+    "cart_token": null,
+    "checkout_id": null,
+    "checkout_token": null,
+    "client_details": null,
+    "closed_at": null,
+    "confirmation_number": "ZFLKEGEAZ",
+    "confirmed": true,
+    "created_at": "2025-01-10T10:44:57+03:00",
+    "currency": "MGA",
+    "current_subtotal_price": "107.7",
+    "current_subtotal_price_set": {
+      "shop_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_additional_fees_set": null,
+    "current_total_discounts": "0.0",
+    "current_total_discounts_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_duties_set": null,
+    "current_total_price": "107.7",
+    "current_total_price_set": {
+      "shop_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_tax": "0.0",
+    "current_total_tax_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "customer_locale": null,
+    "device_id": null,
+    "discount_codes": [],
+    "estimated_taxes": false,
+    "financial_status": "paid",
+    "fulfillment_status": null,
+    "landing_site": null,
+    "landing_site_ref": null,
+    "location_id": null,
+    "merchant_of_record_app_id": null,
+    "name": "#1007",
+    "note": "Command ID: 770675",
+    "note_attributes": [],
+    "number": 7,
+    "order_number": 1007,
+    "original_total_additional_fees_set": null,
+    "original_total_duties_set": null,
+    "payment_gateway_names": [],
+    "po_number": null,
+    "presentment_currency": "MGA",
+    "processed_at": "2025-01-10T10:44:57+03:00",
+    "reference": null,
+    "referring_site": null,
+    "source_identifier": null,
+    "source_name": "204778766337",
+    "source_url": null,
+    "subtotal_price": "107.7",
+    "subtotal_price_set": {
+      "shop_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      }
+    },
+    "tags": "",
+    "tax_exempt": false,
+    "tax_lines": [],
+    "taxes_included": false,
+    "test": false,
+    "token": "59fe8ef39f6b9ee284a7aa33f045f4c5",
+    "total_discounts": "0.0",
+    "total_discounts_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_line_items_price": "107.7",
+    "total_line_items_price_set": {
+      "shop_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      }
+    },
+    "total_outstanding": "107.7",
+    "total_price": "107.7",
+    "total_price_set": {
+      "shop_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      }
+    },
+    "total_shipping_price_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_tax": "0.0",
+    "total_tax_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_tip_received": "0.0",
+    "total_weight": 0,
+    "updated_at": "2025-01-10T10:45:58+03:00",
+    "user_id": null,
+    "billing_address": null,
+    "customer": {
+      "id": 7889906925719,
+      "created_at": "2025-01-09T09:56:12+03:00",
+      "updated_at": "2025-01-10T10:44:57+03:00",
+      "state": "disabled",
+      "note": null,
+      "verified_email": true,
+      "multipass_identifier": null,
+      "tax_exempt": false,
+      "email_marketing_consent": {
+        "state": "not_subscribed",
+        "opt_in_level": "single_opt_in",
+        "consent_updated_at": null
+      },
+      "sms_marketing_consent": {
+        "state": "not_subscribed",
+        "opt_in_level": "single_opt_in",
+        "consent_updated_at": null,
+        "consent_collected_from": "OTHER"
+      },
+      "tags": "",
+      "currency": "MGA",
+      "tax_exemptions": [],
+      "admin_graphql_api_id": "gid://shopify/Customer/7889906925719",
+      "default_address": {
+        "id": 9057311424663,
+        "customer_id": 7889906925719,
+        "company": null,
+        "province": null,
+        "country": "France",
+        "province_code": null,
+        "country_code": "FR",
+        "country_name": "France",
+        "default": true
+      }
+    },
+    "discount_applications": [],
+    "fulfillments": [],
+    "line_items": [
+      {
+        "id": 13739106304151,
+        "admin_graphql_api_id": "gid://shopify/LineItem/13739106304151",
+        "attributed_staffs": [],
+        "current_quantity": 3,
+        "fulfillable_quantity": 3,
+        "fulfillment_service": "manual",
+        "fulfillment_status": null,
+        "gift_card": false,
+        "grams": 0,
+        "name": "Body Daryl - L/XL",
+        "price": "35.9",
+        "price_set": {
+          "shop_money": {
+            "amount": "35.9",
+            "currency_code": "MGA"
+          },
+          "presentment_money": {
+            "amount": "35.9",
+            "currency_code": "MGA"
+          }
+        },
+        "product_exists": true,
+        "product_id": 8711979073687,
+        "properties": [],
+        "quantity": 3,
+        "requires_shipping": true,
+        "sku": "5908305938347",
+        "taxable": true,
+        "title": "Body Daryl",
+        "total_discount": "0.0",
+        "total_discount_set": {
+          "shop_money": {
+            "amount": "0.0",
+            "currency_code": "MGA"
+          },
+          "presentment_money": {
+            "amount": "0.0",
+            "currency_code": "MGA"
+          }
+        },
+        "variant_id": 45014027894935,
+        "variant_inventory_management": "shopify",
+        "variant_title": "L/XL",
+        "vendor": "14245",
+        "tax_lines": [],
+        "duties": [],
+        "discount_allocations": []
+      }
+    ],
+    "payment_terms": null,
+    "refunds": [],
+    "shipping_address": null,
+    "shipping_lines": []
+  },
+  {
+    "id": 5918822105239,
+    "admin_graphql_api_id": "gid://shopify/Order/5918822105239",
+    "app_id": 204778766337,
+    "browser_ip": null,
+    "buyer_accepts_marketing": false,
+    "cancel_reason": null,
+    "cancelled_at": null,
+    "cart_token": null,
+    "checkout_id": null,
+    "checkout_token": null,
+    "client_details": null,
+    "closed_at": null,
+    "confirmation_number": "YKNV5RGRP",
+    "confirmed": true,
+    "created_at": "2025-01-10T10:40:58+03:00",
+    "currency": "MGA",
+    "current_subtotal_price": "107.7",
+    "current_subtotal_price_set": {
+      "shop_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_additional_fees_set": null,
+    "current_total_discounts": "0.0",
+    "current_total_discounts_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_duties_set": null,
+    "current_total_price": "107.7",
+    "current_total_price_set": {
+      "shop_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_tax": "0.0",
+    "current_total_tax_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "customer_locale": null,
+    "device_id": null,
+    "discount_codes": [],
+    "estimated_taxes": false,
+    "financial_status": "paid",
+    "fulfillment_status": null,
+    "landing_site": null,
+    "landing_site_ref": null,
+    "location_id": null,
+    "merchant_of_record_app_id": null,
+    "name": "#1006",
+    "note": "Command ID: 770675",
+    "note_attributes": [],
+    "number": 6,
+    "order_number": 1006,
+    "original_total_additional_fees_set": null,
+    "original_total_duties_set": null,
+    "payment_gateway_names": [],
+    "po_number": null,
+    "presentment_currency": "MGA",
+    "processed_at": "2025-01-10T10:40:58+03:00",
+    "reference": null,
+    "referring_site": null,
+    "source_identifier": null,
+    "source_name": "204778766337",
+    "source_url": null,
+    "subtotal_price": "107.7",
+    "subtotal_price_set": {
+      "shop_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      }
+    },
+    "tags": "",
+    "tax_exempt": false,
+    "tax_lines": [],
+    "taxes_included": false,
+    "test": false,
+    "token": "4d0b5d13e2164069286f529bcb5f519f",
+    "total_discounts": "0.0",
+    "total_discounts_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_line_items_price": "107.7",
+    "total_line_items_price_set": {
+      "shop_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      }
+    },
+    "total_outstanding": "107.7",
+    "total_price": "107.7",
+    "total_price_set": {
+      "shop_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "107.7",
+        "currency_code": "MGA"
+      }
+    },
+    "total_shipping_price_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_tax": "0.0",
+    "total_tax_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_tip_received": "0.0",
+    "total_weight": 0,
+    "updated_at": "2025-01-10T10:41:58+03:00",
+    "user_id": null,
+    "billing_address": null,
+    "customer": {
+      "id": 7889906925719,
+      "created_at": "2025-01-09T09:56:12+03:00",
+      "updated_at": "2025-01-10T10:44:57+03:00",
+      "state": "disabled",
+      "note": null,
+      "verified_email": true,
+      "multipass_identifier": null,
+      "tax_exempt": false,
+      "email_marketing_consent": {
+        "state": "not_subscribed",
+        "opt_in_level": "single_opt_in",
+        "consent_updated_at": null
+      },
+      "sms_marketing_consent": {
+        "state": "not_subscribed",
+        "opt_in_level": "single_opt_in",
+        "consent_updated_at": null,
+        "consent_collected_from": "OTHER"
+      },
+      "tags": "",
+      "currency": "MGA",
+      "tax_exemptions": [],
+      "admin_graphql_api_id": "gid://shopify/Customer/7889906925719",
+      "default_address": {
+        "id": 9057311424663,
+        "customer_id": 7889906925719,
+        "company": null,
+        "province": null,
+        "country": "France",
+        "province_code": null,
+        "country_code": "FR",
+        "country_name": "France",
+        "default": true
+      }
+    },
+    "discount_applications": [],
+    "fulfillments": [],
+    "line_items": [
+      {
+        "id": 13739102175383,
+        "admin_graphql_api_id": "gid://shopify/LineItem/13739102175383",
+        "attributed_staffs": [],
+        "current_quantity": 3,
+        "fulfillable_quantity": 3,
+        "fulfillment_service": "manual",
+        "fulfillment_status": null,
+        "gift_card": false,
+        "grams": 0,
+        "name": "Body Daryl - L/XL",
+        "price": "35.9",
+        "price_set": {
+          "shop_money": {
+            "amount": "35.9",
+            "currency_code": "MGA"
+          },
+          "presentment_money": {
+            "amount": "35.9",
+            "currency_code": "MGA"
+          }
+        },
+        "product_exists": true,
+        "product_id": 8711979073687,
+        "properties": [],
+        "quantity": 3,
+        "requires_shipping": true,
+        "sku": "5908305938347",
+        "taxable": true,
+        "title": "Body Daryl",
+        "total_discount": "0.0",
+        "total_discount_set": {
+          "shop_money": {
+            "amount": "0.0",
+            "currency_code": "MGA"
+          },
+          "presentment_money": {
+            "amount": "0.0",
+            "currency_code": "MGA"
+          }
+        },
+        "variant_id": 45014027894935,
+        "variant_inventory_management": "shopify",
+        "variant_title": "L/XL",
+        "vendor": "14245",
+        "tax_lines": [],
+        "duties": [],
+        "discount_allocations": []
+      }
+    ],
+    "payment_terms": null,
+    "refunds": [],
+    "shipping_address": null,
+    "shipping_lines": []
+  },
+  {
+    "id": 5917148905623,
+    "admin_graphql_api_id": "gid://shopify/Order/5917148905623",
+    "app_id": 204778766337,
+    "browser_ip": null,
+    "buyer_accepts_marketing": false,
+    "cancel_reason": null,
+    "cancelled_at": null,
+    "cart_token": null,
+    "checkout_id": null,
+    "checkout_token": null,
+    "client_details": null,
+    "closed_at": null,
+    "confirmation_number": "VCJUJZ4GE",
+    "confirmed": true,
+    "created_at": "2025-01-09T10:54:30+03:00",
+    "currency": "MGA",
+    "current_subtotal_price": "15.6",
+    "current_subtotal_price_set": {
+      "shop_money": {
+        "amount": "15.6",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "15.6",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_additional_fees_set": null,
+    "current_total_discounts": "0.0",
+    "current_total_discounts_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_duties_set": null,
+    "current_total_price": "15.6",
+    "current_total_price_set": {
+      "shop_money": {
+        "amount": "15.6",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "15.6",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_tax": "0.0",
+    "current_total_tax_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "customer_locale": null,
+    "device_id": null,
+    "discount_codes": [],
+    "estimated_taxes": false,
+    "financial_status": "pending",
+    "fulfillment_status": null,
+    "landing_site": null,
+    "landing_site_ref": null,
+    "location_id": null,
+    "merchant_of_record_app_id": null,
+    "name": "#1004",
+    "note": "Command ID: 770587",
+    "note_attributes": [],
+    "number": 4,
+    "order_number": 1004,
+    "original_total_additional_fees_set": null,
+    "original_total_duties_set": null,
+    "payment_gateway_names": [],
+    "po_number": null,
+    "presentment_currency": "MGA",
+    "processed_at": "2025-01-09T10:54:30+03:00",
+    "reference": null,
+    "referring_site": null,
+    "source_identifier": null,
+    "source_name": "204778766337",
+    "source_url": null,
+    "subtotal_price": "15.6",
+    "subtotal_price_set": {
+      "shop_money": {
+        "amount": "15.6",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "15.6",
+        "currency_code": "MGA"
+      }
+    },
+    "tags": "",
+    "tax_exempt": false,
+    "tax_lines": [],
+    "taxes_included": false,
+    "test": false,
+    "token": "141ab963f4f66b3eadc5d9f108cf1939",
+    "total_discounts": "0.0",
+    "total_discounts_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_line_items_price": "15.6",
+    "total_line_items_price_set": {
+      "shop_money": {
+        "amount": "15.6",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "15.6",
+        "currency_code": "MGA"
+      }
+    },
+    "total_outstanding": "15.6",
+    "total_price": "15.6",
+    "total_price_set": {
+      "shop_money": {
+        "amount": "15.6",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "15.6",
+        "currency_code": "MGA"
+      }
+    },
+    "total_shipping_price_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_tax": "0.0",
+    "total_tax_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_tip_received": "0.0",
+    "total_weight": 0,
+    "updated_at": "2025-01-09T10:55:31+03:00",
+    "user_id": null,
+    "billing_address": null,
+    "customer": {
+      "id": 7889906925719,
+      "created_at": "2025-01-09T09:56:12+03:00",
+      "updated_at": "2025-01-10T10:44:57+03:00",
+      "state": "disabled",
+      "note": null,
+      "verified_email": true,
+      "multipass_identifier": null,
+      "tax_exempt": false,
+      "email_marketing_consent": {
+        "state": "not_subscribed",
+        "opt_in_level": "single_opt_in",
+        "consent_updated_at": null
+      },
+      "sms_marketing_consent": {
+        "state": "not_subscribed",
+        "opt_in_level": "single_opt_in",
+        "consent_updated_at": null,
+        "consent_collected_from": "OTHER"
+      },
+      "tags": "",
+      "currency": "MGA",
+      "tax_exemptions": [],
+      "admin_graphql_api_id": "gid://shopify/Customer/7889906925719",
+      "default_address": {
+        "id": 9057311424663,
+        "customer_id": 7889906925719,
+        "company": null,
+        "province": null,
+        "country": "France",
+        "province_code": null,
+        "country_code": "FR",
+        "country_name": "France",
+        "default": true
+      }
+    },
+    "discount_applications": [],
+    "fulfillments": [],
+    "line_items": [
+      {
+        "id": 13736383348887,
+        "admin_graphql_api_id": "gid://shopify/LineItem/13736383348887",
+        "attributed_staffs": [],
+        "current_quantity": 2,
+        "fulfillable_quantity": 2,
+        "fulfillment_service": "manual",
+        "fulfillment_status": null,
+        "gift_card": false,
+        "grams": 0,
+        "name": "1 Pr�servatif Jimizz",
+        "price": "0.6",
+        "price_set": {
+          "shop_money": {
+            "amount": "0.6",
+            "currency_code": "MGA"
+          },
+          "presentment_money": {
+            "amount": "0.6",
+            "currency_code": "MGA"
+          }
+        },
+        "product_exists": false,
+        "product_id": null,
+        "properties": [],
+        "quantity": 2,
+        "requires_shipping": true,
+        "sku": null,
+        "taxable": true,
+        "title": "1 Pr�servatif Jimizz",
+        "total_discount": "0.0",
+        "total_discount_set": {
+          "shop_money": {
+            "amount": "0.0",
+            "currency_code": "MGA"
+          },
+          "presentment_money": {
+            "amount": "0.0",
+            "currency_code": "MGA"
+          }
+        },
+        "variant_id": null,
+        "variant_inventory_management": null,
+        "variant_title": null,
+        "vendor": null,
+        "tax_lines": [],
+        "duties": [],
+        "discount_allocations": []
+      },
+      {
+        "id": 13736383381655,
+        "admin_graphql_api_id": "gid://shopify/LineItem/13736383381655",
+        "attributed_staffs": [],
+        "current_quantity": 2,
+        "fulfillable_quantity": 2,
+        "fulfillment_service": "manual",
+        "fulfillment_status": null,
+        "gift_card": false,
+        "grams": 0,
+        "name": "String dentelle rouge Raja - Passion",
+        "price": "7.2",
+        "price_set": {
+          "shop_money": {
+            "amount": "7.2",
+            "currency_code": "MGA"
+          },
+          "presentment_money": {
+            "amount": "7.2",
+            "currency_code": "MGA"
+          }
+        },
+        "product_exists": false,
+        "product_id": null,
+        "properties": [],
+        "quantity": 2,
+        "requires_shipping": true,
+        "sku": null,
+        "taxable": true,
+        "title": "String dentelle rouge Raja - Passion",
+        "total_discount": "0.0",
+        "total_discount_set": {
+          "shop_money": {
+            "amount": "0.0",
+            "currency_code": "MGA"
+          },
+          "presentment_money": {
+            "amount": "0.0",
+            "currency_code": "MGA"
+          }
+        },
+        "variant_id": null,
+        "variant_inventory_management": null,
+        "variant_title": null,
+        "vendor": null,
+        "tax_lines": [],
+        "duties": [],
+        "discount_allocations": []
+      }
+    ],
+    "payment_terms": null,
+    "refunds": [],
+    "shipping_address": null,
+    "shipping_lines": []
+  },
+  {
+    "id": 5917125116055,
+    "admin_graphql_api_id": "gid://shopify/Order/5917125116055",
+    "app_id": 204778766337,
+    "browser_ip": null,
+    "buyer_accepts_marketing": false,
+    "cancel_reason": null,
+    "cancelled_at": null,
+    "cart_token": null,
+    "checkout_id": null,
+    "checkout_token": null,
+    "client_details": null,
+    "closed_at": null,
+    "confirmation_number": "3EHVR98UZ",
+    "confirmed": true,
+    "created_at": "2025-01-09T10:16:18+03:00",
+    "currency": "MGA",
+    "current_subtotal_price": "2.0",
+    "current_subtotal_price_set": {
+      "shop_money": {
+        "amount": "2.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "2.0",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_additional_fees_set": null,
+    "current_total_discounts": "0.0",
+    "current_total_discounts_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_duties_set": null,
+    "current_total_price": "2.0",
+    "current_total_price_set": {
+      "shop_money": {
+        "amount": "2.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "2.0",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_tax": "0.0",
+    "current_total_tax_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "customer_locale": null,
+    "device_id": null,
+    "discount_codes": [],
+    "estimated_taxes": false,
+    "financial_status": "pending",
+    "fulfillment_status": null,
+    "landing_site": null,
+    "landing_site_ref": null,
+    "location_id": null,
+    "merchant_of_record_app_id": null,
+    "name": "#1003",
+    "note": "Command ID: 770587",
+    "note_attributes": [],
+    "number": 3,
+    "order_number": 1003,
+    "original_total_additional_fees_set": null,
+    "original_total_duties_set": null,
+    "payment_gateway_names": [],
+    "po_number": null,
+    "presentment_currency": "MGA",
+    "processed_at": "2025-01-09T10:16:18+03:00",
+    "reference": null,
+    "referring_site": null,
+    "source_identifier": null,
+    "source_name": "204778766337",
+    "source_url": null,
+    "subtotal_price": "2.0",
+    "subtotal_price_set": {
+      "shop_money": {
+        "amount": "2.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "2.0",
+        "currency_code": "MGA"
+      }
+    },
+    "tags": "",
+    "tax_exempt": false,
+    "tax_lines": [],
+    "taxes_included": false,
+    "test": false,
+    "token": "8dc5a7cc2e90c997863f1175bb7a9219",
+    "total_discounts": "0.0",
+    "total_discounts_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_line_items_price": "2.0",
+    "total_line_items_price_set": {
+      "shop_money": {
+        "amount": "2.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "2.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_outstanding": "2.0",
+    "total_price": "2.0",
+    "total_price_set": {
+      "shop_money": {
+        "amount": "2.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "2.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_shipping_price_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_tax": "0.0",
+    "total_tax_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_tip_received": "0.0",
+    "total_weight": 0,
+    "updated_at": "2025-01-09T10:17:19+03:00",
+    "user_id": null,
+    "billing_address": {
+      "province": null,
+      "country": "France",
+      "country_code": "FR",
+      "province_code": null
+    },
+    "customer": {
+      "id": 7889906925719,
+      "created_at": "2025-01-09T09:56:12+03:00",
+      "updated_at": "2025-01-10T10:44:57+03:00",
+      "state": "disabled",
+      "note": null,
+      "verified_email": true,
+      "multipass_identifier": null,
+      "tax_exempt": false,
+      "email_marketing_consent": {
+        "state": "not_subscribed",
+        "opt_in_level": "single_opt_in",
+        "consent_updated_at": null
+      },
+      "sms_marketing_consent": {
+        "state": "not_subscribed",
+        "opt_in_level": "single_opt_in",
+        "consent_updated_at": null,
+        "consent_collected_from": "OTHER"
+      },
+      "tags": "",
+      "currency": "MGA",
+      "tax_exemptions": [],
+      "admin_graphql_api_id": "gid://shopify/Customer/7889906925719",
+      "default_address": {
+        "id": 9057311424663,
+        "customer_id": 7889906925719,
+        "company": null,
+        "province": null,
+        "country": "France",
+        "province_code": null,
+        "country_code": "FR",
+        "country_name": "France",
+        "default": true
+      }
+    },
+    "discount_applications": [],
+    "fulfillments": [],
+    "line_items": [
+      {
+        "id": 13736345469079,
+        "admin_graphql_api_id": "gid://shopify/LineItem/13736345469079",
+        "attributed_staffs": [],
+        "current_quantity": 2,
+        "fulfillable_quantity": 2,
+        "fulfillment_service": "manual",
+        "fulfillment_status": null,
+        "gift_card": false,
+        "grams": 0,
+        "name": "1 Pr�servatif Jimizz",
+        "price": "1.0",
+        "price_set": {
+          "shop_money": {
+            "amount": "1.0",
+            "currency_code": "MGA"
+          },
+          "presentment_money": {
+            "amount": "1.0",
+            "currency_code": "MGA"
+          }
+        },
+        "product_exists": false,
+        "product_id": null,
+        "properties": [],
+        "quantity": 2,
+        "requires_shipping": true,
+        "sku": "3760343970602",
+        "taxable": true,
+        "title": "1 Pr�servatif Jimizz",
+        "total_discount": "0.0",
+        "total_discount_set": {
+          "shop_money": {
+            "amount": "0.0",
+            "currency_code": "MGA"
+          },
+          "presentment_money": {
+            "amount": "0.0",
+            "currency_code": "MGA"
+          }
+        },
+        "variant_id": null,
+        "variant_inventory_management": null,
+        "variant_title": null,
+        "vendor": "19065",
+        "tax_lines": [],
+        "duties": [],
+        "discount_allocations": []
+      }
+    ],
+    "payment_terms": null,
+    "refunds": [],
+    "shipping_address": {
+      "province": null,
+      "country": "France",
+      "country_code": "FR",
+      "province_code": null
+    },
+    "shipping_lines": []
+  },
+  {
+    "id": 5916041314455,
+    "admin_graphql_api_id": "gid://shopify/Order/5916041314455",
+    "app_id": 204778766337,
+    "browser_ip": null,
+    "buyer_accepts_marketing": false,
+    "cancel_reason": null,
+    "cancelled_at": null,
+    "cart_token": null,
+    "checkout_id": null,
+    "checkout_token": null,
+    "client_details": null,
+    "closed_at": null,
+    "confirmation_number": "185YY1L30",
+    "confirmed": true,
+    "created_at": "2025-01-08T14:17:33+03:00",
+    "currency": "MGA",
+    "current_subtotal_price": "1.0",
+    "current_subtotal_price_set": {
+      "shop_money": {
+        "amount": "1.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "1.0",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_additional_fees_set": null,
+    "current_total_discounts": "0.0",
+    "current_total_discounts_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_duties_set": null,
+    "current_total_price": "1.0",
+    "current_total_price_set": {
+      "shop_money": {
+        "amount": "1.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "1.0",
+        "currency_code": "MGA"
+      }
+    },
+    "current_total_tax": "0.0",
+    "current_total_tax_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "customer_locale": null,
+    "device_id": null,
+    "discount_codes": [],
+    "estimated_taxes": false,
+    "financial_status": "paid",
+    "fulfillment_status": null,
+    "landing_site": null,
+    "landing_site_ref": null,
+    "location_id": null,
+    "merchant_of_record_app_id": null,
+    "name": "#1001",
+    "note": null,
+    "note_attributes": [],
+    "number": 1,
+    "order_number": 1001,
+    "original_total_additional_fees_set": null,
+    "original_total_duties_set": null,
+    "payment_gateway_names": [],
+    "po_number": null,
+    "presentment_currency": "MGA",
+    "processed_at": "2025-01-08T14:17:33+03:00",
+    "reference": null,
+    "referring_site": null,
+    "source_identifier": null,
+    "source_name": "204778766337",
+    "source_url": null,
+    "subtotal_price": "1.0",
+    "subtotal_price_set": {
+      "shop_money": {
+        "amount": "1.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "1.0",
+        "currency_code": "MGA"
+      }
+    },
+    "tags": "",
+    "tax_exempt": false,
+    "tax_lines": [],
+    "taxes_included": false,
+    "test": false,
+    "token": "f5998cee0594d52080244ea6e19e607c",
+    "total_discounts": "0.0",
+    "total_discounts_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_line_items_price": "1.0",
+    "total_line_items_price_set": {
+      "shop_money": {
+        "amount": "1.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "1.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_outstanding": "1.0",
+    "total_price": "1.0",
+    "total_price_set": {
+      "shop_money": {
+        "amount": "1.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "1.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_shipping_price_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_tax": "0.0",
+    "total_tax_set": {
+      "shop_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      },
+      "presentment_money": {
+        "amount": "0.0",
+        "currency_code": "MGA"
+      }
+    },
+    "total_tip_received": "0.0",
+    "total_weight": 0,
+    "updated_at": "2025-01-08T14:18:34+03:00",
+    "user_id": null,
+    "billing_address": null,
+    "customer": {
+      "id": 7887523676311,
+      "created_at": "2025-01-08T14:17:33+03:00",
+      "updated_at": "2025-01-08T14:17:33+03:00",
+      "state": "disabled",
+      "note": null,
+      "verified_email": true,
+      "multipass_identifier": null,
+      "tax_exempt": false,
+      "email_marketing_consent": {
+        "state": "not_subscribed",
+        "opt_in_level": "single_opt_in",
+        "consent_updated_at": null
+      },
+      "sms_marketing_consent": null,
+      "tags": "",
+      "currency": "MGA",
+      "tax_exemptions": [],
+      "admin_graphql_api_id": "gid://shopify/Customer/7887523676311"
+    },
+    "discount_applications": [],
+    "fulfillments": [],
+    "line_items": [
+      {
+        "id": 13734295568535,
+        "admin_graphql_api_id": "gid://shopify/LineItem/13734295568535",
+        "attributed_staffs": [],
+        "current_quantity": 1,
+        "fulfillable_quantity": 1,
+        "fulfillment_service": "manual",
+        "fulfillment_status": null,
+        "gift_card": false,
+        "grams": 0,
+        "name": "1 Pr�servatif Jimizz",
+        "price": "1.0",
+        "price_set": {
+          "shop_money": {
+            "amount": "1.0",
+            "currency_code": "MGA"
+          },
+          "presentment_money": {
+            "amount": "1.0",
+            "currency_code": "MGA"
+          }
+        },
+        "product_exists": false,
+        "product_id": null,
+        "properties": [],
+        "quantity": 1,
+        "requires_shipping": true,
+        "sku": "3760343970602",
+        "taxable": true,
+        "title": "1 Pr�servatif Jimizz",
+        "total_discount": "0.0",
+        "total_discount_set": {
+          "shop_money": {
+            "amount": "0.0",
+            "currency_code": "MGA"
+          },
+          "presentment_money": {
+            "amount": "0.0",
+            "currency_code": "MGA"
+          }
+        },
+        "variant_id": null,
+        "variant_inventory_management": null,
+        "variant_title": null,
+        "vendor": "19065",
+        "tax_lines": [],
+        "duties": [],
+        "discount_allocations": []
+      }
+    ],
+    "payment_terms": null,
+    "refunds": [],
+    "shipping_address": null,
+    "shipping_lines": []
+  }
+]

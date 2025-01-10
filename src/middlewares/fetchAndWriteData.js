@@ -6,13 +6,38 @@ import { getProductInfo } from '../utils/soap.utils.js';
 import axios from 'axios';
 import fs from 'fs';
 import dotenv from 'dotenv';
+import compareOrders from './fetchCommand.js';
 dotenv.config();
+
+const SOAP_URL = process.env.SOAP_URL;
 
 const SHOPIFY_STORE = process.env.URL_SHOPIFY;
 const ACCESS_TOKEN = process.env.ACCESS_SHOPIFY;
 const apiLog = process.env.API_LOG;
 const apiKey = process.env.API_KEY;
 const actif = 1;
+
+const getLocations = async () => {
+    const locationsUrl = `${SHOPIFY_STORE}/admin/api/2023-01/locations.json`;
+
+    try {
+        const response = await axios.get(locationsUrl, {
+        headers: {
+            'X-Shopify-Access-Token': ACCESS_TOKEN,
+        },
+        });
+
+        const locations = response.data.locations;
+        if (locations && locations.length > 0) {
+        return locations[0].id; // Return the first location ID
+        } else {
+        throw new Error('No locations found.');
+        }
+    } catch (error) {
+        console.error('Error fetching locations:', error.response?.data || error.message);
+        throw error; // Re-throw the error to handle it later
+    }
+};
 
 const fetchAllShopifyProducts = async () => {
     
@@ -53,8 +78,8 @@ const fetchAllShopifyProducts = async () => {
 const syncShopifyProducts = async () => {
     try {
         // Charger les fichiers JSON
-        const appProducts = JSON.parse(await fn.readFile('./src/middlewares/product.json', 'utf-8'));
-        const shopifyProducts = JSON.parse(await fn.readFile('./src/utils/shopify_products.json', 'utf-8'));
+        const appProducts = JSON.parse(await fn.readFile('./product.json', 'utf-8'));
+        const shopifyProducts = JSON.parse(await fn.readFile('./shopify_products.json', 'utf-8'));
 
         for (const appProduct of appProducts) {
             try {
@@ -81,28 +106,20 @@ const syncShopifyProducts = async () => {
 
                                 if (quantityChanged) {
                                     console.log(`Mise à jour de la variante SKU ${existingVariant.sku}`);
-                                    const updateUrl = `${SHOPIFY_STORE}/admin/api/2023-01/variants/${existingVariant.id}.json`;
-                                    /*await axios.put(updateUrl, {
-                                        variant: {
-                                            id: existingVariant.id,
-                                            inventory_quantity: parseInt(appVariant.stock_qt),
-                                        },
-                                    }, {
-                                        headers: {
-                                            'X-Shopify-Access-Token': ACCESS_TOKEN,
-                                        },
-                                    });*/
+                                    const inventoryLevelUrl = `${SHOPIFY_STORE}/admin/api/2023-01/inventory_levels/set.json`;
+                                    const locationId = await getLocations(); 
+                                    const data = {
+                                        location_id: locationId,
+                                        inventory_item_id: existingVariant.inventory_item_id,
+                                        available: parseInt(appVariant.stock_qt),
+                                    };
+                                    
                                     try {
-                                        await axios.put(updateUrl, {
-                                            variant: {
-                                                id: existingVariant.id,
-                                                inventory_quantity: parseInt(appVariant.stock_qt),
-                                            },
-                                        }, {
+                                        await axios.post(inventoryLevelUrl, data, {
                                             headers: {
-                                                'X-Shopify-Access-Token': ACCESS_TOKEN,
+                                              'X-Shopify-Access-Token': ACCESS_TOKEN,
                                             },
-                                        });
+                                          });
                                     } catch (error) {
                                         console.error(`Erreur lors de la mise à jour de la variante SKU ${existingVariant.sku}`);
                                         if (error.response) {
@@ -140,24 +157,41 @@ const syncShopifyProducts = async () => {
                     if (process.env.NODE_ENV === 'development') {
                         console.log(`Ajout d'un nouveau produit avec ID ${appProduct.prd_id}`);
                     }
+
                     const createUrl = `${SHOPIFY_STORE}/admin/api/2023-01/products.json`;
-                    await axios.post(createUrl, {
+
+                    const productPayload = {
                         product: {
                             title: appProduct.productInfo?.isbnList[0]?.prd_libel || 'Produit Sans Nom',
                             body_html: appProduct.productInfo?.isbnList[0]?.prd_large_description || '',
                             vendor: appProduct.prd_id,
                             product_type: appProduct.productInfo?.isbnList[0]?.prd_categorie || '',
-                            variants: appProduct.variants.map((variant) => ({
+                            variants: appProduct.variants.map(variant => ({
                                 sku: variant.stock_ean13,
-                                inventory_quantity: parseInt(variant.stock_qt),
+                                inventory_quantity: parseInt(variant.stock_qt, 10),
+                                inventory_management: "shopify",
                                 price: appProduct.productInfo?.isbnList[0]?.prd_px_euro || '0.00',
+                                option1: variant.stock_taille || null, // Ensure null if no value
+                                option2: variant.stock_couleur || null, // Ensure null if no value
                             })),
                         },
-                    }, {
+                    };
+            
+                    if (appProduct.options && appProduct.options.length > 0) {
+                        productPayload.product.options = appProduct.options.map(option => ({
+                            name: option.name,
+                            values: option.values,
+                        }));
+                    }
+            
+                    // Send the request
+                    const response = await axios.post(createUrl, productPayload, {
                         headers: {
                             'X-Shopify-Access-Token': ACCESS_TOKEN,
                         },
                     });
+            
+                    console.log(`Produit créé avec succès: ${response.data.product.id}`);
                 }
             } catch (productError) {
                 console.error(`Erreur lors du traitement du produit ID ${appProduct.prd_id} :`, productError.message);
@@ -176,11 +210,11 @@ async function fetchAndUpdateProductData(apiLog, apiKey, actif) {
         "Accept": "*/*",
         "User-Agent": "Node Fetch",
         "Content-Type": "text/xml",
-        "SOAPAction": "http://soapdev.netcomvad.com/soap_pro.php#GetAllProductStock"
+        "SOAPAction": `${SOAP_URL}#GetAllProductStock`
     };
 
     const bodyContent = `
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="http://soapdev.netcomvad.com/soap_pro.php">
+    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="${SOAP_URL}">
         <soapenv:Header/>
         <soapenv:Body>
             <bus:GetAllProductStock>
@@ -194,9 +228,10 @@ async function fetchAndUpdateProductData(apiLog, apiKey, actif) {
     while (true) {
         try {
             console.log("Fetching product stock data...");
+            await compareOrders();
             await fetchAllShopifyProducts();
             // Fetch SOAP data
-            const response = await fetch("http://soapdev.netcomvad.com/soap_pro.php", {
+            const response = await fetch(`${SOAP_URL}`, {
                 method: "POST",
                 body: bodyContent,
                 headers: headersList
@@ -214,16 +249,19 @@ async function fetchAndUpdateProductData(apiLog, apiKey, actif) {
                 stock_ean13: item.getElementsByTagName("stock_ean13")[0]?.textContent,
                 stock_qt: item.getElementsByTagName("stock_qt")[0]?.textContent,
                 stock_actif: item.getElementsByTagName("stock_actif")[0]?.textContent,
-                stock_suivi: item.getElementsByTagName("stock_suivi")[0]?.textContent
+                stock_suivi: item.getElementsByTagName("stock_suivi")[0]?.textContent,
+                stock_taille: item.getElementsByTagName("stock_taille")[0]?.textContent || '',
+                stock_couleur: item.getElementsByTagName("stock_couleur")[0]?.textContent || '',
             }));
+
 
             // Optional: Transform stock list as needed
             const formatStockList = transformStockList(stockList);
             const productInfo = await getProductInfo(formatStockList);
-
+            
             // Write to JSON file
             const jsonData = JSON.stringify(productInfo, null, 2);
-
+ 
             // Write to JSON file
             await fn.writeFile(filePath, jsonData, 'utf8');
             console.log(`Updated product data written to ${filePath}.`);
@@ -239,5 +277,3 @@ async function fetchAndUpdateProductData(apiLog, apiKey, actif) {
 }
 
 fetchAndUpdateProductData(apiLog, apiKey, actif);
-
-export default fetchAndUpdateProductData;

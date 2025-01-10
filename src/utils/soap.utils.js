@@ -2,20 +2,26 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 import axios from 'axios';
 import fn from 'fs/promises';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const SHOPIFY_STORE = process.env.URL_SHOPIFY;
 const ACCESS_TOKEN = process.env.ACCESS_SHOPIFY;
+const API_LOG = process.env.API_LOG;
+const API_KEY = process.env.API_KEY;
+const APP_URL = process.env.APP_URL;
 
 function transformStockList(stockList) {
     const transformedStockList = {};
 
     stockList.forEach(item => {
-        const { prd_id, stock_ean13, stock_qt, stock_actif, stock_suivi } = item;
+        const { prd_id, stock_ean13, stock_qt, stock_actif, stock_suivi, stock_taille, stock_couleur } = item;
 
         if (!transformedStockList[prd_id]) {
             transformedStockList[prd_id] = {
                 prd_id: prd_id,
-                variants: []
+                variants: [],
+                options: [] // Initialize the options array here
             };
         }
 
@@ -23,33 +29,52 @@ function transformStockList(stockList) {
             stock_ean13: stock_ean13,
             stock_qt: stock_qt,
             stock_actif: stock_actif,
-            stock_suivi: stock_suivi
+            stock_suivi: stock_suivi,
+            stock_taille: stock_taille,
+            stock_couleur: stock_couleur
         });
+
+        // Add size options
+        if (stock_taille && !transformedStockList[prd_id].options.some(option => option.name === "Size")) {
+            transformedStockList[prd_id].options.push({
+                name: "Size",
+                values: [...new Set(stockList.filter(item => item.prd_id === prd_id).map(i => i.stock_taille).filter(size => size))]
+            });
+        }
+
+        // Add color options
+        if (stock_couleur && !transformedStockList[prd_id].options.some(option => option.name === "Color")) {
+            transformedStockList[prd_id].options.push({
+                name: "Color",
+                values: [...new Set(stockList.filter(item => item.prd_id === prd_id).map(i => i.stock_couleur).filter(color => color))]
+            });
+        }
     });
 
-    // Convertir l'objet en tableau
     return Object.values(transformedStockList);
 }
+
 
 async function getProductInfo(formatStockList) {
     const batchSize = 10; // Number of products to fetch in one request
     const delay = ms => new Promise(resolve => setTimeout(resolve, ms)); // Delay function
 
     const results = [];
-
+    
     for (let i = 0; i < formatStockList.length; i += batchSize) {
         const batch = formatStockList.slice(i, i + batchSize);
+        
         const batchPromises = batch.map(async stockItem => {
             const prd_id = stockItem.prd_id;
             try {
-                const response = await fetch("http://localhost:3000/soap/get-product-info", {
+                const response = await fetch(`${APP_URL}/soap/get-product-info`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json' // Set the content type to JSON
                     },
                     body: JSON.stringify({
-                        api_log: '625789',
-                        api_key: '789da23ef034810c2e3295fea47532a342ecf61e',
+                        api_log: API_LOG,
+                        api_key: API_KEY,
                         product_id: prd_id
                     }),
                 });
@@ -140,6 +165,4 @@ const deleteAllProducts = async () => {
     }
 };
 
-
-//fetchAllShopifyProducts()
 export { transformStockList, getProductInfo };

@@ -2,7 +2,12 @@ import { DOMParser } from 'xmldom';
 import fetch from 'node-fetch';
 import fs from 'fs/promises';
 import {transformStockList} from '../utils/soap.utils.js'
+import iconv from 'iconv-lite'
 
+import dotenv from 'dotenv';
+dotenv.config();
+
+const SOAP_URL = process.env.SOAP_URL;
 
 const supportObjectControllers = async (req, res) => {
     try {
@@ -15,7 +20,7 @@ const supportObjectControllers = async (req, res) => {
 
         // Define the body for the SOAP request
         const bodyContent = `
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="http://soapdev.netcomvad.com/soap_pro.php">
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="${SOAP_URL}">
             <soapenv:Header/>
             <soapenv:Body>
                 <bus:GetSupportObjets>
@@ -25,7 +30,7 @@ const supportObjectControllers = async (req, res) => {
         </soapenv:Envelope>`;
 
         // Perform the SOAP request using fetch
-        const response = await fetch("http://soapdev.netcomvad.com/soap_pro.php", {
+        const response = await fetch(`${SOAP_URL}`, {
             method: "POST", // Using POST for the SOAP request
             body: bodyContent,
             headers: headersList
@@ -86,7 +91,7 @@ const addClientController = async (req, res) => {
 
         // Prepare the SOAP body with dynamic values
         const bodyContent = `
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="http://soapdev.netcomvad.com/soap_pro.php">
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="${SOAP_URL}">
             <soapenv:Header/>
             <soapenv:Body>
                 <bus:AddClient>
@@ -99,7 +104,7 @@ const addClientController = async (req, res) => {
         </soapenv:Envelope>`;
 
         // Perform the SOAP request using fetch
-        const response = await fetch("http://soapdev.netcomvad.com/soap_pro.php", {
+        const response = await fetch(`${SOAP_URL}`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
@@ -139,12 +144,12 @@ const addCommandControllers = async (req, res) => {
             "Accept": "*/*",
             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Content-Type": "text/xml",
-            "SOAPAction": "http://soapdev.netcomvad.com/soap_pro.php.php#AddCommande"
+            "SOAPAction": `${SOAP_URL}#AddCommande`
         };
 
         // Prepare the SOAP body with dynamic values
         const bodyContent = `
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="http://soapdev.netcomvad.com/soap_pro.php">
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="${SOAP_URL}">
             <soapenv:Header/>
             <soapenv:Body>
                 <bus:AddCommande>
@@ -156,7 +161,7 @@ const addCommandControllers = async (req, res) => {
         </soapenv:Envelope>`;
 
         // Perform the SOAP request using fetch
-        const response = await fetch("http://soapdev.netcomvad.com/soap_pro.php", {
+        const response = await fetch(`${SOAP_URL}`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
@@ -196,12 +201,12 @@ const cartAddItemControllers = async (req, res) => {
             "Accept": "*/*",
             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Content-Type": "text/xml",
-            "SOAPAction": "http://soapdev.netcomvad.com/soap_pro.php#CartAddItemPro"
+            "SOAPAction": `${SOAP_URL}#CartAddItemPro`
         };
 
         // Prepare the SOAP body with dynamic values
         const bodyContent = `
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="http://soapdev.netcomvad.com/soap_pro.php">
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="${SOAP_URL}">
             <soapenv:Header/>
             <soapenv:Body>
                 <bus:CartAddItemPro>
@@ -217,7 +222,7 @@ const cartAddItemControllers = async (req, res) => {
         </soapenv:Envelope>`;
 
         // Perform the SOAP request using fetch
-        const response = await fetch("http://soapdev.netcomvad.com/soap_pro.php", {
+        const response = await fetch(`${SOAP_URL}`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
@@ -257,12 +262,12 @@ const getInfoClientControllers = async (req, res) => {
             "Accept": "*/*",
             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Content-Type": "text/xml",
-            "SOAPAction": "http://soapdev.netcomvad.com/soap_pro.php#GetClientInfo"
+            "SOAPAction": `${SOAP_URL}#GetClientInfo`
         };
 
         // Prepare the SOAP body with dynamic values
         const bodyContent = `
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="http://soapdev.netcomvad.com/soap_pro.php">
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="${SOAP_URL}">
             <soapenv:Header/>
             <soapenv:Body>
                 <bus:GetClientInfo>
@@ -275,7 +280,7 @@ const getInfoClientControllers = async (req, res) => {
         </soapenv:Envelope>`;
 
         // Perform the SOAP request using fetch
-        const response = await fetch("http://soapdev.netcomvad.com/soap_pro.php", {
+        const response = await fetch(`${SOAP_URL}`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
@@ -315,7 +320,7 @@ const getAllOptionControllers = async (req, res) => {
             "Accept": "*/*",
             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Content-Type": "text/xml",
-            "SOAPAction": "http://soapdev.netcomvad.com/soap_pro.php#GetAllOptions"
+            "SOAPAction": `${SOAP_URL}#GetAllOptions`
         };
 
         // Prepare the SOAP body with dynamic values
@@ -331,7 +336,7 @@ const getAllOptionControllers = async (req, res) => {
         </soapenv:Envelope>`;
 
         // Perform the SOAP request using fetch
-        const response = await fetch("http://soapdev.netcomvad.com/soap_pro.php", {
+        const response = await fetch(`${SOAP_URL}`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
@@ -378,12 +383,12 @@ const getAllIsbn = async (req, res) => {
             "Accept": "*/*",
             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Content-Type": "text/xml",
-            "SOAPAction": "http://soapdev.netcomvad.com/soap_pro.php#GetAllIsbn"
+            "SOAPAction": `${SOAP_URL}#GetAllIsbn`
         };
 
         // Prepare the SOAP body with dynamic values
         const bodyContent = `
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="http://soapdev.netcomvad.com/soap_pro.php">
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="${SOAP_URL}">
             <soapenv:Header/>
             <soapenv:Body>
                 <bus:GetAllIsbn>
@@ -394,7 +399,7 @@ const getAllIsbn = async (req, res) => {
         </soapenv:Envelope>`;
 
         // Perform the SOAP request using fetch
-        const response = await fetch("http://soapdev.netcomvad.com/soap_pro.php", {
+        const response = await fetch(`${SOAP_URL}`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
@@ -438,12 +443,12 @@ const getAllAuteurControllers = async (req, res) => {
             "Accept": "*/*",
             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Content-Type": "text/xml",
-            "SOAPAction": "http://soapdev.netcomvad.com/soap_pro.php#GetAllAuteurs"
+            "SOAPAction": `${SOAP_URL}#GetAllAuteurs`
         };
 
         // Prepare the SOAP body with dynamic values
         const bodyContent = `
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="http://soapdev.netcomvad.com/soap_pro.php">
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="${SOAP_URL}">
             <soapenv:Header/>
             <soapenv:Body>
                 <bus:GetAllAuteurs>
@@ -454,7 +459,7 @@ const getAllAuteurControllers = async (req, res) => {
         </soapenv:Envelope>`;
 
         // Perform the SOAP request using fetch
-        const response = await fetch("http://soapdev.netcomvad.com/soap_pro.php", {
+        const response = await fetch(`${SOAP_URL}`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
@@ -483,6 +488,10 @@ const getAllAuteurControllers = async (req, res) => {
     }
 }
 
+function fixEncoding(text) {
+    return iconv.decode(Buffer.from(text, 'binary'), 'utf8');
+}
+
 const getProductInfoControllers = async (req, res) => {
     try {
         // Destructure the required fields from req.body
@@ -498,12 +507,12 @@ const getProductInfoControllers = async (req, res) => {
             "Accept": "*/*",
             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Content-Type": "text/xml",
-            "SOAPAction": "https://soap.busyx.com/soap_pro.php#GetAllIsbn"
+            "SOAPAction": `${SOAP_URL}#GetAllIsbn`
         };
 
         // Prepare the SOAP body with dynamic values
         const bodyContent = `
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="https://soap.busyx.com/soap_pro.php">
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="${SOAP_URL}">
             <soapenv:Header/>
             <soapenv:Body>
                 <bus:GetProductInfo>
@@ -515,7 +524,7 @@ const getProductInfoControllers = async (req, res) => {
         </soapenv:Envelope>`;
 
         // Perform the SOAP request using fetch
-        const response = await fetch("https://soap.busyx.com/soap_pro.php", {
+        const response = await fetch(`${SOAP_URL}`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
@@ -531,6 +540,7 @@ const getProductInfoControllers = async (req, res) => {
         // Extract items from the response
         const items = xmlDoc.getElementsByTagName("item");
         const isbnList = Array.from(items).map(item => ({
+
             id_produit: item.getElementsByTagName("id_produit")[0]?.textContent,
             prd_codebarre: item.getElementsByTagName("prd_codebarre")[0]?.textContent,
             prd_libel: item.getElementsByTagName("prd_libel")[0]?.textContent,
@@ -575,12 +585,12 @@ const getAllProductStockController = async (req, res) => {
             "Accept": "*/*",
             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Content-Type": "text/xml",
-            "SOAPAction": "http://soapdev.netcomvad.com/soap_pro.php#GetAllProductStock"
+            "SOAPAction": `${SOAP_URL}#GetAllProductStock`
         };
 
         // Prepare the SOAP body with dynamic values
         const bodyContent = `
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="http://soapdev.netcomvad.com/soap_pro.php">
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="${SOAP_URL}">
             <soapenv:Header/>
             <soapenv:Body>
                 <bus:GetAllProductStock>
@@ -592,7 +602,7 @@ const getAllProductStockController = async (req, res) => {
         </soapenv:Envelope>`;
 
         // Perform the SOAP request using fetch
-        const response = await fetch("http://soapdev.netcomvad.com/soap_pro.php", {
+        const response = await fetch(`${SOAP_URL}`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
@@ -608,12 +618,15 @@ const getAllProductStockController = async (req, res) => {
         // Extract items from the response
         const items = xmlDoc.getElementsByTagName("item");
         const stockList = Array.from(items).map(item => ({
-            prd_id: item.getElementsByTagName("prd_id")[0]?.textContent,
-            stock_ean13: item.getElementsByTagName("stock_ean13")[0]?.textContent,
-            stock_qt: item.getElementsByTagName("stock_qt")[0]?.textContent,
-            stock_actif: item.getElementsByTagName("stock_actif")[0]?.textContent,
-            stock_suivi: item.getElementsByTagName("stock_suivi")[0]?.textContent
+            prd_id: item.getElementsByTagName("prd_id")[0]?.textContent || null,
+            stock_ean13: item.getElementsByTagName("stock_ean13")[0]?.textContent || '',
+            stock_qt: item.getElementsByTagName("stock_qt")[0]?.textContent || 0,
+            stock_actif: item.getElementsByTagName("stock_actif")[0]?.textContent || '',
+            stock_suivi: item.getElementsByTagName("stock_suivi")[0]?.textContent || 0,
+            stock_taille: item.getElementsByTagName("stock_taille")[0]?.textContent || '',
+            stock_couleur: item.getElementsByTagName("stock_couleur")[0]?.textContent || '',
         }));
+
 
         const formatStockList = transformStockList(stockList);
         // Send the result as JSON
@@ -662,12 +675,12 @@ const getTbCommandController = async (req, res) => {
             "Accept": "*/*",
             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Content-Type": "text/xml",
-            "SOAPAction": "http://soapdev.netcomvad.com/soap_pro.php#GetTbCommandes"
+            "SOAPAction": `${SOAP_URL}#GetTbCommandes`
         };
 
         // Prepare the SOAP body with dynamic values
         const bodyContent = `
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="http://soapdev.netcomvad.com/soap_pro.php">
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="${SOAP_URL}">
             <soapenv:Header/>
             <soapenv:Body>
                 <bus:GetTbCommandes>
@@ -681,7 +694,7 @@ const getTbCommandController = async (req, res) => {
         </soapenv:Envelope>`;
 
         // Perform the SOAP request using fetch
-        const response = await fetch("http://soapdev.netcomvad.com/soap_pro.php", {
+        const response = await fetch(`${SOAP_URL}`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
@@ -754,12 +767,12 @@ const getProductStockIdControllers = async (req, res) => {
             "Accept": "*/*",
             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Content-Type": "text/xml",
-            "SOAPAction": "http://soapdev.netcomvad.com/soap_pro.php#GetProductStock"
+            "SOAPAction": `${SOAP_URL}#GetProductStock`
         };
 
         // Prepare the SOAP body with dynamic values
         const bodyContent = `
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="http://soapdev.netcomvad.com/soap_pro.php">
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bus="${SOAP_URL}">
             <soapenv:Header/>
             <soapenv:Body>
                 <bus:GetProductStock>
@@ -771,7 +784,7 @@ const getProductStockIdControllers = async (req, res) => {
         </soapenv:Envelope>`;
 
         // Perform the SOAP request using fetch
-        const response = await fetch("http://soapdev.netcomvad.com/soap_pro.php", {
+        const response = await fetch(`${SOAP_URL}`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
